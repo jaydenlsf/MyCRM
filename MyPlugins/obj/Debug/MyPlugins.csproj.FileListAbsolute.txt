@@ -1,0 +1,9 @@
+D:\Dynamics365\MyCRM\MyPlugins\obj\Debug\MyPlugins.csprojAssemblyReference.cache
+D:\Dynamics365\MyCRM\MyPlugins\obj\Debug\MyPlugins.csproj.CoreCompileInputs.cache
+D:\Dynamics365\MyCRM\MyPlugins\bin\Debug\MyPlugins.dll
+D:\Dynamics365\MyCRM\MyPlugins\bin\Debug\MyPlugins.pdb
+D:\Dynamics365\MyCRM\MyPlugins\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\Dynamics365\MyCRM\MyPlugins\bin\Debug\Microsoft.Xrm.Sdk.xml
+D:\Dynamics365\MyCRM\MyPlugins\obj\Debug\MyPlugins.csproj.CopyComplete
+D:\Dynamics365\MyCRM\MyPlugins\obj\Debug\MyPlugins.dll
+D:\Dynamics365\MyCRM\MyPlugins\obj\Debug\MyPlugins.pdb
