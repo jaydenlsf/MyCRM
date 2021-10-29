@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;]
+using System.Threading.Tasks;
 using Microsoft.Xrm.Sdk;
 using System.ServiceModel;
 
@@ -35,12 +35,25 @@ namespace MyPlugins
                 context.InputParameters["Target"] is Entity)
             {
                 // Obtain the target entity from the input parameters.  
-                Entity entity = (Entity)context.InputParameters["Target"];
+                Entity account = (Entity)context.InputParameters["Target"];
 
 
                 try
                 {
                     // Plug-in business logic goes here.  
+                    tracingService.Trace(context.Depth.ToString());
+                    if (context.Depth > 1)
+                        return;
+
+                    // if statement is added in case the use removes the value
+                    if(account.Attributes["revenue"] != null)
+                    {
+                        decimal revenue = ((Money)account.Attributes["revenue"]).Value;
+                        revenue = Math.Round(revenue, 1);
+
+                        account.Attributes["revenue"] = new Money(revenue);
+                    }
+                    
                    
                 }
 
