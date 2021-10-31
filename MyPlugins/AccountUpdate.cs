@@ -46,25 +46,27 @@ namespace MyPlugins
 
                     decimal revenue = 0;
                     int numberofemployees = 0;
-
-                    // if the value is entered by the user while updating
+                    // IF the value is entered by the user while updating
                     if (account.Attributes.Contains("revenue") && account.Attributes["revenue"] != null)
                     {
                         revenue = ((Money)account.Attributes["revenue"]).Value;
                     }
                     else
                     {
-                        // using pre-entity image
+                        // service.Retrieve("account",account.Id, new Microsoft.Xrm.Sdk.Query.ColumnSet("")
+                        // Using Pre-entity Image
                         Entity image = context.PreEntityImages["PreImage"];
 
-                        // check for attribute because it may not be available in the collection if it is blank
+                        // Checking for attribute because, attribute may not be availble in the collection
+                        // if it is blank. 
                         if (image.Attributes.Contains("revenue"))
                         {
+
                             revenue = ((Money)image.Attributes["revenue"]).Value;
                         }
                         else
                         {
-                            // skip plugin
+                            // Skipping Plugin
                             return;
                         }
                     }
@@ -75,24 +77,27 @@ namespace MyPlugins
                     }
                     else
                     {
-                        // using pre-entity image
+                        // service.Retrieve("account",account.Id, new Microsoft.Xrm.Sdk.Query.ColumnSet("")
+                        // Using Pre-entity Image
                         Entity image = context.PreEntityImages["PreImage"];
 
-                        // check for attribute because it may not be available in the collection if it is blank
+                        // Checking for attribute because, attribute may not be availble in the collection
+                        // if it is blank. 
                         if (image.Attributes.Contains("numberofemployees"))
                         {
-                            numberofemployees = Convert.ToInt32(account.Attributes["numberofemployees"].ToString());
+
+                            numberofemployees = Convert.ToInt32(image.Attributes["numberofemployees"].ToString());
                         }
                         else
                         {
-                            // skip plugin
+                            // Skipping Plugin
                             return;
                         }
                     }
 
-                    if(revenue ==0 || numberofemployees == 0)
+                    if (revenue == 0 || numberofemployees == 0)
                     {
-                        // make it blank again
+                        // Make it blank again
                         account.Attributes.Add("contoso_annualrevenueperemployee", null);
                         return;
                     }

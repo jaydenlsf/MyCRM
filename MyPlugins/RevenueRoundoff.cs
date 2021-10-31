@@ -42,19 +42,20 @@ namespace MyPlugins
                 {
                     // Plug-in business logic goes here.  
                     tracingService.Trace(context.Depth.ToString());
+
                     if (context.Depth > 1)
                         return;
 
-                    // if statement is added in case the use removes the value
-                    if(account.Attributes["revenue"] != null)
+                    // In case the user removes the value 
+                    if (account.Attributes["revenue"] != null)
                     {
                         decimal revenue = ((Money)account.Attributes["revenue"]).Value;
                         revenue = Math.Round(revenue, 1);
 
                         account.Attributes["revenue"] = new Money(revenue);
                     }
-                    
-                   
+
+
                 }
 
                 catch (FaultException<OrganizationServiceFault> ex)
