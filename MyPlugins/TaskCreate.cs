@@ -10,6 +10,12 @@ namespace MyPlugins
 {
     public class TaskCreate : IPlugin
     {
+        int tax;
+
+        public TaskCreate(string unSecureConfig, string secureConfig)
+        {
+            tax = Convert.ToInt32(unSecureConfig);
+        }
         public void Execute(IServiceProvider serviceProvider)
         {
             // Extract the tracing service for use in debugging sandboxed plug-ins.  
@@ -28,7 +34,7 @@ namespace MyPlugins
                 (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
             IOrganizationService service = serviceFactory.CreateOrganizationService(context.UserId);
 
-            IOrganizationService adminService = serviceFactory.CreateOrganizationService(new Guid(""));
+            // IOrganizationService adminService = serviceFactory.CreateOrganizationService(new Guid(""));
 
 
 
@@ -44,24 +50,28 @@ namespace MyPlugins
                 {
                     // Plug-in business logic goes here.  
 
-                    string key = context.SharedVariables["key1"].ToString();
+                    // string key = context.SharedVariables["key1"].ToString();
 
                     Entity taskRecord = new Entity("task");
                     taskRecord.Attributes.Add("subject", "Follow up");
-                    taskRecord.Attributes.Add("description", "Please contact recruiter");
+                    taskRecord.Attributes.Add("description", "Please follow up with contact.");
+
+                    // Date
                     taskRecord.Attributes.Add("scheduledend", DateTime.Now.AddDays(2));
 
-                    // Option set priority value as "High"
+                    // Option set value as "High"
                     taskRecord.Attributes.Add("prioritycode", new OptionSetValue(2));
 
-                    // Parent record or look up
+                    // Parent record or Look up
                     // taskRecord.Attributes.Add("regardingobjectid", new EntityReference("contact", contact.Id));
-                    taskRecord.Attributes.Add("regardingobjectid", contact.ToEntityReference());
 
+                    taskRecord.Attributes.Add("regardingobjectid", contact.ToEntityReference());
 
                     Guid taskGuid = service.Create(taskRecord);
 
-                    tracingService.Trace("Task created with Guid {0}", taskGuid.ToString());
+
+
+                    tracingService.Trace("task created with Guid {0}", taskGuid.ToString());
                 }
 
                 catch (FaultException<OrganizationServiceFault> ex)
