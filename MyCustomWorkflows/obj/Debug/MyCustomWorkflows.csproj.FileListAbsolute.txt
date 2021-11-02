@@ -1,0 +1,9 @@
+D:\Dynamics365\MyCRM\MyCustomWorkflows\obj\Debug\MyCustomWorkflows.csprojAssemblyReference.cache
+D:\Dynamics365\MyCRM\MyCustomWorkflows\obj\Debug\MyCustomWorkflows.csproj.CoreCompileInputs.cache
+D:\Dynamics365\MyCRM\MyCustomWorkflows\bin\Debug\MyCustomWorkflows.dll
+D:\Dynamics365\MyCRM\MyCustomWorkflows\bin\Debug\MyCustomWorkflows.pdb
+D:\Dynamics365\MyCRM\MyCustomWorkflows\bin\Debug\Microsoft.Xrm.Sdk.dll
+D:\Dynamics365\MyCRM\MyCustomWorkflows\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+D:\Dynamics365\MyCRM\MyCustomWorkflows\obj\Debug\MyCustomWorkflows.csproj.CopyComplete
+D:\Dynamics365\MyCRM\MyCustomWorkflows\obj\Debug\MyCustomWorkflows.dll
+D:\Dynamics365\MyCRM\MyCustomWorkflows\obj\Debug\MyCustomWorkflows.pdb
